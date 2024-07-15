@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+        p {
+            white-space: pre-line; 
+
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+              
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <h1>MERN Stack Backend Cheat Sheet</h1>
+                <p>
+                    This cheat sheet covers the essential commands, configurations, and code snippets for setting up 
+                    and managing a backend using the MERN stack (MongoDB, Express.js, React.js, and Node.js). 
+                    The focus here is on the backend components: MongoDB, Express.js, and Node.js.
+                </p>
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li>1. Project Initialization</li>
+                    <li>2. Dependencies</li>
+                    <li>3. Environment Variables</li>
+                    <li>4. Database Connection</li>
+                    <li>5. Express Server Setup</li>
+                    <li>6. Routes</li>
+                    <li>7. Controllers</li>
+                    <li>8. Middleware</li>
+                    <li>9. Models and Schemas</li>
+                    <li>10. Authentication (JWT)</li>
+                    <li>11. Error Handling</li>
+                    <li>12. Testing</li>
+                </ul>
+                <h2>1. Project Initialization</h2>
+                <pre><code>mkdir backend 
+            cd backend  
+            npm init -y</code></pre>
+                <h2>2. Dependencies</h2>
+                <pre><code>npm install express mongoose dotenv bcryptjs jsonwebtoken ... etc 
+            npm install --save-dev nodemon</code></pre>
+                <h2>3. Environment Variables</h2>
+                <pre><code>.env 
+            PORT=8000 
+            MONGO_URI=mongodb://localhost:27017/myapp 
+            JWT_SECRET=mysecret</code></pre>
+                <h2>4. Database Connection</h2>
+                <pre><code>import mongoose from 'mongoose'; 
+            import dotenv from 'dotenv'; 
+             
+            dotenv.config(); 
+             
+            const connectDB = async () =&gt; { 
+                try { 
+                    const conn = await mongoose.connect(process.env.MONGO_URI, { 
+                        useNewUrlParser: true, 
+                        useUnifiedTopology: true, 
+                    }); 
+                    console.log(`MongoDB Connected: ${conn.connection.host}`); 
+                } catch (error) { 
+                    console.error(`Error: ${error.message}`); 
+                    process.exit(1); 
+                } 
+            }; 
+             
+            export default connectDB;</code></pre>
+                <h2>5. Express Server Setup</h2>
+                <pre><code>import express from 'express'; 
+            import dotenv from 'dotenv'; 
+            import connectDB from './config/db.js'; 
+            import userRoutes from './routes/userRoutes.js'; 
+             
+            dotenv.config(); 
+            connectDB(); 
+             
+            const app = express(); 
+             
+            app.use(express.json()); 
+             
+            app.use('/api/users', userRoutes); 
+             
+            app.use((err, req, res, next) =&gt; { 
+                res.status(500).json({ message: err.message }); 
+            }); 
+             
+            const PORT = process.env.PORT || 5000; 
+            app.listen(PORT, () =&gt; console.log(`Server running on port ${PORT}`));</code></pre>
+                <h2>6. Routes</h2>
+                <pre><code>import express from 'express'; 
+            import { registerUser, loginUser } from '../controllers/userController.js'; 
+             
+            const router = express.Router(); 
+            router.post('/register', registerUser); 
+            router.post('/login', loginUser); 
+             
+            export default router;</code></pre>
+                <h2>7. Controllers</h2>
+                <pre><code>import User from '../models/User.js'; 
+            import bcrypt from 'bcryptjs'; 
+            import jwt from 'jsonwebtoken'; 
+             
+            export const registerUser = async (req, res) =&gt; { 
+                const { name, email, password } = req.body; 
+                try { 
+                    const userExists = await User.findOne({ email }); 
+                    if (userExists) { 
+                        res.status(400); 
+                        throw new Error('User already exists'); 
+                    } 
+             
+                    const salt = await bcrypt.genSalt(10); 
+                    const hashedPassword = await bcrypt.hash(password, salt); 
+             
+                    const user = await User.create({ 
+                        name, 
+                        email, 
+                        password: hashedPassword 
+                    }); 
+             
+                    res.status(201).json({ 
+                        _id: user._id, 
+                        name: user.name, 
+                        email: user.email, 
+                        token: generateToken(user._id), 
+                    }); 
+                } catch (error) { 
+                    res.status(400).json({ message: error.message }); 
+                } 
+            }; 
+            export const loginUser = async (req, res) =&gt; { 
+                const { email, password } = req.body; 
+             
+                try { 
+                    const user = await User.findOne({ email }); 
+             
+                    if (user && (await bcrypt.compare(password, user.password))) { 
+                        res.json({ 
+                            _id: user._id, 
+                            name: user.name, 
+                            email: user.email, 
+                            token: generateToken(user._id), 
+                        }); 
+                    } else { 
+                        res.status(401); 
+                        throw new Error('Invalid email or password'); 
+                    } 
+                } catch (error) { 
+                    res.status(400).json({ message: error.message }); 
+                } 
+            }; 
+            const generateToken = (id) =&gt; { 
+                return jwt.sign({ id }, process.env.JWT_SECRET, { 
+                    expiresIn: '30d', 
+                }); 
+            };</code></pre>
+                <h2>8. Middleware</h2>
+                <pre><code>import jwt from 'jsonwebtoken'; 
+            import User from '../models/User.js'; 
+             
+            export const protect = async (req, res, next) =&gt; { 
+                let token; 
+             
+                if (req.headers.authorization && 
+            req.headers.authorization.startsWith('Bearer')) { 
+                    try { 
+                        token = req.headers.authorization.split(' ')[1]; 
+                        const decoded = jwt.verify(token, process.env.JWT_SECRET); 
+                        req.user = await User.findById(decoded.id).select('-password'); 
+                        next(); 
+                    } catch (error) { 
+                        res.status(401); 
+                        throw new Error('Not authorized, token failed'); 
+                    } 
+                } 
+             
+                if (!token) { 
+                    res.status(401); 
+                    throw new Error('Not authorized, no token'); 
+                } 
+            };</code></pre>
+                <h2>9. Models and Schemas</h2>
+                <pre><code>import mongoose from 'mongoose'; 
+            const userSchema = mongoose.Schema({ 
+                name: { 
+                    type: String, 
+                    required: true, 
+                }, 
+                email: { 
+                    type: String, 
+                    required: true, 
+                    unique: true, 
+                }, 
+                password: { 
+                    type: String, 
+                    required: true, 
+                }, 
+            }, { 
+                timestamps: true, 
+            }); 
+            const User = mongoose.model('User', userSchema); 
+            export default User;</code></pre>
+                <h2>10. Authentication (JWT)</h2>
+                <p>
+                    Authentication is handled in the user with JWT tokens.
+                </p>
+                <h2>11. Error Handling</h2>
+                <p>
+                    Error handling is implemented globally in the Express server setup.
+                </p>
+                <h2>12. Testing</h2>
+                <p>
+                    To start the development server:
+                </p>
+                <h3>Running Tests (Optional)</h3>
+                <p>
+                    For testing, you might use libraries like Mocha, Chai, or Jest. Here's a basic example setup with 
+                    Jest:
+                </p>
+                <pre><code>npm install --save-dev jest supertest 
+            import request from 'supertest'; 
+            import app from '../index.js'; 
+            describe('User Endpoints', () =&gt; { 
+                it('should create a new user', async () =&gt; { 
+                    const res = await request(app) 
+                        .post('/api/users/register') 
+                        .send({ 
+                            name: 'John Doe', 
+                            email: 'john@example.com', 
+                            password: '123456' 
+                        }); 
+                    expect(res.statusCode).toEqual(201); 
+                    expect(res.body).toHaveProperty('token'); 
+                }); 
+             
+                it('should login an existing user', async () =&gt; { 
+                    const res = await request(app) 
+                        .post('/api/users/login') 
+                        .send({ 
+                            email: 'john@example.com
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>

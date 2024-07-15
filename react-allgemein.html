@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+        p {
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <h2>Allgemein: Was ist React</h2>
+                <p>
+                    Was ist React?
+        React ist eine beliebte JavaScript-Bibliothek die von Facebook entwickelt und im Jahr 2013 veröffentlicht wurde. Sie wird verwendet um benutzerfreundliche und dynamische Benutzeroberflächen (User Interfaces UIs) zu erstellen. React zeichnet sich durch seine Komponentbasierte Architektur aus die es Entwicklern ermöglicht wiederverwendbare UI-Bausteine zu erstellen und zu verwalten.
+
+        Wichtige Merkmale von React
+
+        Komponentenbasierte Architektur: In React werden Anwendungen aus Komponenten aufgebaut. Jede Komponente ist ein eigenständiges Modul das seinen eigenen Zustand und seine eigenen Methoden verwaltet. Diese Modularität fördert die Wiederverwendbarkeit und Wartbarkeit des Codes.
+
+        Virtuelles DOM: React verwendet ein virtuelles DOM (Document Object Model) um Änderungen effizient zu verwalten. Das virtuelle DOM ist eine leichte Kopie des echten DOMs. Wenn sich der Zustand einer Komponente ändert aktualisiert React das virtuelle DOM und berechnet die minimalen Änderungen die am echten DOM vorgenommen werden müssen. Dadurch werden Performance-Probleme minimiert.
+
+        Unidirektionaler Datenfluss: Daten in React fließen in eine Richtung – von den Elternkomponenten zu den Kinderkomponenten. Dies erleichtert das Debuggen und Nachverfolgen von Datenänderungen.
+
+        JSX: JSX (JavaScript XML) ist eine Syntaxerweiterung für JavaScript die es ermöglicht HTML-ähnlichen Code innerhalb von JavaScript zu schreiben. JSX erleichtert das Erstellen von React-Komponenten und macht den Code lesbarer.
+
+        Verwendung von React
+
+        React wird in einer Vielzahl von Anwendungen und Branchen verwendet. Hier sind einige der häufigsten Anwendungsbereiche:
+
+        Webanwendungen: React wird häufig für die Entwicklung von Webanwendungen verwendet. Große Unternehmen wie Facebook Instagram Netflix und Airbnb nutzen React um ihre Benutzeroberflächen zu erstellen. Die Fähigkeit von React interaktive und dynamische UIs zu erstellen macht es zu einer idealen Wahl für Webanwendungen.
+
+        Single Page Applications (SPAs): SPAs sind Webanwendungen die eine einzelne HTML-Seite laden und dynamisch aktualisieren ohne die Seite neu zu laden. Reacts Fähigkeit Änderungen effizient zu verwalten macht es perfekt für SPAs.
+
+        Mobile Anwendungen: Mit React Native einem Framework basierend auf React können Entwickler mobile Anwendungen für iOS und Android erstellen. React Native ermöglicht die Wiederverwendung von React-Komponenten und bietet eine native Performance für mobile Anwendungen.
+
+        E-Commerce-Plattformen: Viele E-Commerce-Unternehmen nutzen React um benutzerfreundliche und schnelle Webshops zu entwickeln. Reacts komponentenbasierter Ansatz erleichtert die Implementierung von Funktionen wie Produktsuche Warenkorbverwaltung und Benutzeranmeldungen.
+
+        Content-Management-Systeme (CMS): React wird auch in CMS-Plattformen eingesetzt um benutzerfreundliche und interaktive Admin-Oberflächen zu erstellen. Dadurch können Benutzer Inhalte einfach erstellen bearbeiten und verwalten.
+
+        Fazit
+
+        React ist eine leistungsfähige und flexible Bibliothek zur Erstellung von Benutzeroberflächen. Seine komponentenbasierte Architektur das virtuelle DOM und der unidirektionale Datenfluss machen es zu einer idealen Wahl für die Entwicklung moderner Web- und Mobile-Anwendungen. Durch die breite Unterstützung und die große Entwickler-Community ist React eine zukunftssichere Technologie für viele verschiedene Anwendungsbereiche.
+
+        Quellen
+        React Dokumentation: https://react.dev/learn
+        MDN Web Docs: https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started
+        FreeCodeCamp: https://www.freecodecamp.org/news/get-started-with-react-for-beginners/
+                </p>
+
+            </section>
+          
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>

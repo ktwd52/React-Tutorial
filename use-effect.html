@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+        p {
+            white-space: pre-line; 
+
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+              
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <h2>React-Hooks: useEffect</h2>
+                <p>
+                    Neben <code>useState</code>, das zur Verwaltung des Zustands in funktionalen Komponenten dient, stellt React den Hook <code>useEffect</code> zur Verfügung. <code>useEffect</code> ermöglicht es Entwicklern, Nebenwirkungen in ihren Komponenten zu handhaben, wie zum Beispiel Datenabfragen, direkte DOM-Manipulationen, das Setzen von Timern und das Abonnieren von Ereignissen.
+                </p>
+                <h2>Was ist useEffect?</h2>
+                <p>
+                    <code>useEffect</code> ist ein Hook, der in funktionalen Komponenten verwendet wird, um Nebenwirkungen zu handhaben. Er vereint die Funktionalität von <code>componentDidMount</code>, <code>componentDidUpdate</code> und <code>componentWillUnmount</code> aus Klassenkomponenten in einer einzigen API. <code>useEffect</code> wird nach dem Rendern der Komponente aufgerufen und ist ein essenzielles Werkzeug, um die Logik zu kapseln, die außerhalb des direkten Renderprozesses liegt.
+                </p>
+                <h2>Verwendung von useEffect</h2>
+                <p>
+                    Der Hook wird folgendermaßen importiert und verwendet:
+                </p>
+                <pre><code>import React, { useEffect } from 'react';</code></pre>
+                <p>
+                    Ein einfaches Beispiel für die Nutzung von <code>useEffect</code> könnte so aussehen:
+                </p>
+                <pre><code>function ExampleComponent() {
+                useEffect(() => {
+                    document.title = 'React useEffect Beispiel';
+                });
+            
+                return (
+                    &lt;div&gt;
+                        &lt;p&gt;Schauen Sie sich den Seitentitel an!&lt;/p&gt;
+                    &lt;/div&gt;
+                );
+            }</code></pre>
+                <p>In diesem Beispiel wird der Seitentitel jedes Mal aktualisiert, wenn die Komponente gerendert wird.</p>
+                <h2>Abhängigkeiten in useEffect</h2>
+                <p>
+                    Eine der leistungsstärksten Funktionen von <code>useEffect</code> ist die Möglichkeit, Abhängigkeiten anzugeben. Das zweite Argument von <code>useEffect</code> ist ein Array von Abhängigkeiten. Der Effekt wird nur ausgeführt, wenn sich eine der Abhängigkeiten geändert hat:
+                </p>
+                <pre><code>function Counter({ count }) {
+                useEffect(() => {
+                    console.log(`Der Zähler wurde auf ${count} aktualisiert`);
+                }, [count]);
+            
+                return (
+                    &lt;div&gt;
+                        &lt;p&gt;Der aktuelle Zählerstand ist: {count}&lt;/p&gt;
+                    &lt;/div&gt;
+                );
+            }</code></pre>
+                <p>Wenn das Abhängigkeitsarray leer ist (<code>[]</code>), wird der Effekt nur einmal nach dem ersten Rendern ausgeführt, ähnlich wie <code>componentDidMount</code>:</p>
+                <pre><code>useEffect(() => {
+                console.log('Komponente wurde gemountet');
+            }, []);</code></pre>
+                <h2>Bereinigen von Effekten</h2>
+                <p>
+                    Viele Nebenwirkungen erfordern eine Bereinigung, wie z. B. das Abbrechen von Netzwerkaufrufen oder das Entfernen von Event-Listenern. <code>useEffect</code> kann eine Bereinigungsfunktion zurückgeben, die beim Unmounting der Komponente oder vor der nächsten Ausführung des Effekts aufgerufen wird:
+                </p>
+                <pre><code>function Timer() {
+                useEffect(() => {
+                    const timerId = setInterval(() => {
+                        console.log('Tick');
+                    }, 1000);
+            
+                    return () => {
+                        clearInterval(timerId);
+                        console.log('Timer wurde bereinigt');
+                    };
+                }, []);
+            
+                return &lt;div&gt;Schauen Sie in die Konsole!&lt;/div&gt;;
+            }</code></pre>
+                <p>In diesem Beispiel wird der Timer gestoppt, wenn die Komponente unmounted wird, oder bevor der Effekt erneut ausgeführt wird.</p>
+                <h2>Mehrere Effekte</h2>
+                <p>
+                    Man kann in einer Komponente mehrere <code>useEffect</code>-Hooks verwenden, um verschiedene Nebenwirkungen unabhängig voneinander zu behandeln:
+                </p>
+                <pre><code>function MultiEffectComponent({ userId }) {
+                useEffect(() => {
+                    document.title = `User ID: ${userId}`;
+                }, [userId]);
+            
+                useEffect(() => {
+                    console.log('Komponente wurde gerendert');
+                });
+            
+                return &lt;div&gt;User ID ist: {userId}&lt;/div&gt;;
+            }</code></pre>
+                <p>Jeder <code>useEffect</code>-Hook kann unterschiedliche Abhängigkeiten haben und wird unabhängig von den anderen ausgeführt.</p>
+                <h2>Quellen</h2>
+                <p>Um das Verständnis für <code>useEffect</code> weiter zu vertiefen und fortgeschrittenere Anwendungsfälle zu erkunden, sind hier einige nützliche Ressourcen:</p>
+                <ol>
+                    <li><a href="https://react.dev/reference/react/useEffect">React Dokumentation</a></li>
+                    <li><a href="https://www.freecodecamp.org/news/how-to-use-the-usestate-and-useeffect-hooks-in-your-project/">FreeCodeCamp</a></li>
+                </ol>
+            </section>
+          
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>

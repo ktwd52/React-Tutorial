@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+        p {
+            white-space: pre-line; 
+
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <h2>React-Hooks</h2>
+                <p>
+                    <p>
+                        Eine der zentralen Herausforderungen beim Entwickeln dynamischer Anwendungen ist das effiziente und reaktive Verwalten des Zustands (State). Hier kommt der Hook <code>useState</code> ins Spiel, der ab React 16.8 eingeführt wurde und Entwicklern ermöglicht, funktionale Komponenten um Zustand zu erweitern.
+                    </p>
+                    <h2>Was ist useState?</h2>
+                    <p>
+                        <code>useState</code> ist ein Hook, der es ermöglicht, Zustandsvariablen in funktionalen Komponenten zu verwenden. Vor der Einführung von Hooks konnten nur Klassenkomponenten Zustand verwalten. Mit <code>useState</code> können auch funktionale Komponenten diese Funktionalität übernehmen.
+                    </p>
+                    <h2>Verwendung von useState</h2>
+                    <p>
+                        Um <code>useState</code> zu verwenden, muss es zunächst aus React importiert werden:
+                    </p>
+                    <pre><code>import React, { useState } from 'react';</code></pre>
+                    <p>
+                        Der Hook wird in einer Komponente aufgerufen und liefert ein Array mit zwei Elementen: dem aktuellen Zustand und einer Funktion, um den Zustand zu aktualisieren. Ein einfaches Beispiel könnte folgendermaßen aussehen:
+                    </p>
+                    <pre><code>function Counter() {
+                    // Deklariert eine neue Zustandsvariable "count", die initial auf 0 gesetzt wird.
+                    const [count, setCount] = useState(0);
+                
+                    return (
+                        &lt;div&gt;
+                            &lt;p&gt;Der aktuelle Zählerstand ist: {count}&lt;/p&gt;
+                            &lt;button onClick={() => setCount(count + 1)}&gt;
+                                Erhöhe den Zähler
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                    );
+                }</code></pre>
+                    <p>In diesem Beispiel:</p>
+                    <ul>
+                        <li><code>count</code> ist die Zustandsvariable.</li>
+                        <li><code>setCount</code> ist die Funktion, die verwendet wird, um den Zustand zu aktualisieren.</li>
+                        <li>Der Anfangswert des Zählers wird auf 0 gesetzt.</li>
+                    </ul>
+                    <h2>Initialisieren des Zustands</h2>
+                    <p>
+                        <code>useState</code> akzeptiert einen einzigen Parameter, der den Initialzustand darstellt. Dies kann ein primitiver Wert, ein Objekt oder eine Funktion sein. Wenn der Initialzustand von einer Funktion abhängt, die eine teure Berechnung durchführt, kann man eine Funktion übergeben, die nur beim ersten Rendern aufgerufen wird:
+                    </p>
+                    <pre><code>const [count, setCount] = useState(() => {
+                    const initialCount = someExpensiveComputation();
+                    return initialCount;
+                });</code></pre>
+                    <h2>Aktualisieren des Zustands</h2>
+                    <p>
+                        Die Zustandsaktualisierungsfunktion (<code>setCount</code> im obigen Beispiel) ersetzt den alten Zustand durch den neuen Zustand. Es ist wichtig zu beachten, dass der Zustand nicht direkt mutiert, sondern immer über die Aktualisierungsfunktion geändert wird. Wenn der neue Zustand auf Basis des alten Zustands berechnet wird, sollte man die funktionale Form von <code>setState</code> verwenden:
+                    </p>
+                    <pre><code>setCount(prevCount => prevCount + 1);</code></pre>
+                    <h2>Mehrere Zustandsvariablen</h2>
+                    <p>
+                        In einer Komponente können mehrere <code>useState</code>-Hooks verwendet werden, um unterschiedliche Zustände zu verwalten:
+                    </p>
+                    <pre><code>function Form() {
+                    const [name, setName] = useState('');
+                    const [email, setEmail] = useState('');
+                
+                    return (
+                        &lt;form&gt;
+                            &lt;input 
+                                type="text" 
+                                value={name} 
+                                onChange={e => setName(e.target.value)} 
+                                placeholder="Name" 
+                            /&gt;
+                            &lt;input 
+                                type="email" 
+                                value={email} 
+                                onChange={e => setEmail(e.target.value)} 
+                                placeholder="Email" 
+                            /&gt;
+                        &lt;/form&gt;
+                    );
+                }</code></pre>
+                    <p>In diesem Beispiel gibt es zwei Zustandsvariablen: <code>name</code> und <code>email</code>, die unabhängig voneinander verwaltet werden.</p>
+                    <h2>Vorteile von useState</h2>
+                    <ul>
+                        <li><strong>Einfachheit:</strong> <code>useState</code> macht es einfach, Zustand in funktionalen Komponenten zu verwalten, ohne dass Klassen verwendet werden müssen.</li>
+                        <li><strong>Kapselung:</strong> Zustand kann auf feingranulare Weise verwaltet werden, was zu saubererem und verständlicherem Code führt.</li>
+                        <li><strong>Flexibilität:</strong> Mehrere Zustandsvariablen können unabhängig voneinander verwendet und aktualisiert werden.</li>
+                    </ul>
+                    <h2>Quellen</h2>
+                    <p>Um weiter in das Thema einzutauchen und fortgeschrittenere Konzepte zu verstehen, sind hier einige nützliche Quellen:</p>
+                    <ol>
+                        <li><a href="https://react.dev/reference/react/useState">React Dokumentation</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_events_state">MDN Web Docs</a></li>
+                        <li><a href="https://www.tutorialspoint.com/react_native/react_native_state.htm">TutorialsPoint</a></li>
+                        <li><a href="https://www.freecodecamp.org/news/how-to-use-the-usestate-and-useeffect-hooks-in-your-project/">FreeCodeCamp</a></li>
+                    </ol>  
+
+
+                </p>
+            </section>
+          
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>

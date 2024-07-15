@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+        p {
+            white-space: pre-line; 
+
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+              
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <h2>React Router Overview</h2>
+
+                <p><strong>Entwickler:</strong> remix.run, youtube Kanal</p>
+                <p><strong>Verwendete Programmiersprachen:</strong> TypeScript (97.3%), JavaScript (2.7%)</p>
+                <p><strong>Offizielle Webseite:</strong> <a href="https://reactrouter.com/">https://reactrouter.com/</a></p>
+                <p><strong>git Repo mit Beispieldateien:</strong> <a href="https://github.com/remix-run/react-router">https://github.com/remix-run/react-router</a></p>
+                <p><strong>Neueste Version:</strong> 6.24.1 (2024-07-03)</p>
+                <p><strong>npm Webseite und Installation:</strong> <a href="https://www.npmjs.com/package/react-router-dom">https://www.npmjs.com/package/react-router-dom</a></p>
+                <p><strong>einfach, bei neuen Anwendung:</strong> <code>npm i react-router-dom</code></p>
+                <p><strong>Aktualisieren auf neuste Version:</strong> <code>npm i -D react-router-dom@latest</code></p>
+              
+                <p><strong>React Router, Warum?</strong></p>
+                <p>Ein Single-Page-Webanwendung (SPA), wie React verfügt über keine Routenführung um dynamische Routings zu implementieren. React Router ist die meistbenutze Lösungsvariante, um eine vollständige Benutzeroberfläche zu erstellen, die der URL zugeordnet ist. Es ermöglicht Entwicklern eine nahtlose Navigation zwischen verschiedenen Komponenten und emuliert das Erlebnis einer mehrseitigen Website in einem einzigen HTML-Dokument.</p>
+                <p>Die Hauptaufgaben von React Router sind:</p>
+                <ul>
+                  <li>Abonnieren und Manipulieren des Verlaufsstapels (History stack)</li>
+                  <li>Anpassen der URL an Ihre Routen</li>
+                  <li>Rendern einer verschachtelten Benutzeroberfläche aus den Routenübereinstimmungen</li>
+                </ul>
+              
+                <p>Technisch gesehen handelt es sich um drei verschiedene Pakete: React Router, React Router DOM und React Router Native.</p>
+                <p>Der Hauptunterschied liegt in ihrer Verwendung:</p>
+                <ul>
+                  <li><strong>React Router:</strong> Kernpaket mit Standardkomponenten und Funktionalitäten zur Implementierung von Routing in React-Anwendungen (Nie in sich selber importieren)</li>
+                  <li><strong>React-Router-DOM:</strong> Spezialpaket für webbrowserbasierten Anwendungsentwicklung</li>
+                  <li><strong>React-Router-Native:</strong> Spezialpaket für mobile Anwendungen, die mit React Native erstellt wurden.</li>
+                </ul>
+              
+                <p>Alle Definitionen und Abkürzungen finden Sie hier (Englisch): <a href="https://reactrouter.com/en/main/start/faq">https://reactrouter.com/en/main/start/faq</a></p>
+              
+                <p><strong>Quellen:</strong></p>
+                <ul>
+                  <li><a href="https://reactrouter.com/en/main/start/concepts">https://reactrouter.com/en/main/start/concepts</a></li>
+                  <li><a href="https://www.freecodecamp.org/news/react-router-cheatsheet/">https://www.freecodecamp.org/news/react-router-cheatsheet/</a></li>
+                  <li><a href="https://www.codecademy.com/learn/learn-react-router/modules/learn-react-router/cheatsheet">https://www.codecademy.com/learn/learn-react-router/modules/learn-react-router/cheatsheet</a></li>
+                </ul>
+            </section>
+          
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>

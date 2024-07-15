@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <pre>
+                    <h2>TAILWIND CSS ADDON</h2>
+                    1. npm install -D tailwindcss   
+                    2. npx tailwindcss init 
+                    3. tailwind.config.js modifizieren mit folgende Inhalt :  
+                    /** @type {import('tailwindcss').Config} */ 
+                    module.exports = { 
+                      content: [ 
+                        "./src/**/*.{js,jsx,ts,tsx}", 
+                      ], 
+                      theme: { 
+                        extend: {}, 
+                      }, 
+                      plugins: [], 
+                    } 
+                    4. Füge die folgenden Code-Zeilen in index.css : 
+                                           @tailwind base; 
+                    @tailwind components; 
+                    @tailwind utilities; 
+                      
+                    ***** DAISYUI ADDON ***** 
+                    1. npm i -D daisyui@latest  >>>> Daisy UI installieren  
+                    2. das folgende Code zu tailwind.config.js in plugins bereich in modules 
+                    export hinzufügen : require('daisyui'), 
+                     
+                     
+                            ***** PRETTIER ADDON FÜR REACT ***** 
+                    1.  npm install --save-dev --save-exact prettier >>>> Prittier 
+                    installieren  
+                    2.  node --eval "fs.writeFileSync('.prettierrc','{}\n')" >>>> config 
+                    Datei erstellen. 
+                    3.  node --eval "fs.writeFileSync('.prettierignore','# Ignore 
+                    artifacts:\nbuild\ncoverage\n')"  >>>>  .prettierignore Datei 
+                    erstellen .  
+                    4.  npx prettier . –write  >>>> alles mit Prittier Addon 
+                    formatieren.
+                      </pre>
+            </section>
+          
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>

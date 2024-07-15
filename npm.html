@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+        p {
+            white-space: pre-line; 
+
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <h2>Einführung in React-Bibliotheken von npm</h2>
+
+                <p>npm (Node Package Manager) ist das größte Ökosystem für JavaScript-Pakete und bietet eine Vielzahl von Bibliotheken und Tools, die die Entwicklung mit React erleichtern und erweitern. Diese Bibliotheken ermöglichen es Entwicklern, wiederverwendbare Komponenten, State-Management-Lösungen, Routing, Formulare und vieles mehr in ihre React-Anwendungen zu integrieren. Im folgenden wollen wir einen kurzen Einblick in die Vielfalt der verfügbaren Libaries geben:</p>
+              
+                <h3>Wichtige React-Bibliotheken von npm</h3>
+              
+                <ol>
+                  <li>
+                    <p><strong>react-router</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> react-router ist eine Bibliothek für die Navigation und das Routing in React-Anwendungen. Sie ermöglicht es, verschiedene URLs mit unterschiedlichen Komponenten zu verknüpfen, was besonders für Single Page Applications (SPAs) wichtig ist.</li>
+                      <li><strong>Installation:</strong> <code>npm install react-router-dom</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>redux</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> redux ist ein vorhersehbares Zustandsverwaltungs-Tool für JavaScript-Anwendungen. Es hilft, den Zustand zentral zu verwalten und die Anwendungslogik besser zu strukturieren.</li>
+                      <li><strong>Installation:</strong> <code>npm install redux react-redux</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>formik</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> formik ist eine Bibliothek zur Verwaltung und Validierung von Formularen in React. Sie vereinfacht die Handhabung von Formulardaten und Validierungslogik.</li>
+                      <li><strong>Installation:</strong> <code>npm install formik</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>axios</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> axios ist eine beliebte Bibliothek für HTTP-Anfragen. Sie wird häufig in React-Anwendungen verwendet, um Daten von APIs zu laden.</li>
+                      <li><strong>Installation:</strong> <code>npm install axios</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>styled-components</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> styled-components ermöglicht es Entwicklern, ihre CSS-Stile direkt in JavaScript-Dateien zu schreiben. Dies fördert die Erstellung von gekapselten, wiederverwendbaren Komponenten.</li>
+                      <li><strong>Installation:</strong> <code>npm install styled-components</code></li>
+                    </ul>
+                  </li>
+                </ol>
+              
+                <h3>Weitere React-Bibliotheken</h3>
+              
+                <ol start="6">
+                  <li>
+                    <p><strong>react-multi-carousel</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> react-multi-carousel ist eine flexible und reaktionsschnelle Carousel-Komponente für React-Anwendungen. Sie unterstützt mehrere Elemente, automatische Wiedergabe und benutzerdefinierte Navigation.</li>
+                      <li><strong>Installation:</strong> <code>npm install react-multi-carousel</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>react-router-bootstrap</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> react-router-bootstrap integriert React Router mit React-Bootstrap, um Navigationselemente wie Links und Menüs zu erstellen, die mit React Router funktionieren.</li>
+                      <li><strong>Installation:</strong> <code>npm install react-router-bootstrap</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>react-lottie</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> react-lottie ist eine Bibliothek zum einfachen Einbetten von Lottie-Animationen in React-Anwendungen.</li>
+                      <li><strong>Installation:</strong> <code>npm install react-lottie</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>@mui/x-data-grid</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> @mui/x-data-grid ist eine leistungsstarke und anpassbare Datenraster-Komponente für React, die von Material-UI bereitgestellt wird.</li>
+                      <li><strong>Installation:</strong> <code>npm install @mui/x-data-grid</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>recharts</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> recharts ist eine einfach zu bedienende Charting-Bibliothek für React, die auf D3.js basiert und eine Vielzahl von Diagrammtypen unterstützt.</li>
+                      <li><strong>Installation:</strong> <code>npm install recharts</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>@paypal/react-paypal-js</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> @paypal/react-paypal-js ist eine Bibliothek zur Integration der PayPal-Zahlungsschaltfläche in React-Anwendungen.</li>
+                      <li><strong>Installation:</strong> <code>npm install @paypal/react-paypal-js</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>socket.io-client</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> socket.io-client ermöglicht die Echtzeit-Kommunikation zwischen Client und Server. Es wird häufig in React-Anwendungen für Echtzeit-Updates und Websockets verwendet.</li>
+                      <li><strong>Installation:</strong> <code>npm install socket.io-client</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>date-fns</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> date-fns ist eine moderne JavaScript-Datumsbibliothek, die eine Vielzahl von Funktionen für die Handhabung und Manipulation von Datumswerten bietet.</li>
+                      <li><strong>Installation:</strong> <code>npm install date-fns</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>react-leaflet und leaflet</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> react-leaflet ist eine React-Bibliothek zur Einbindung von Leaflet-Karten in React-Anwendungen. leaflet ist eine führende Open-Source-Bibliothek für interaktive Karten.</li>
+                      <li><strong>Installation:</strong> <code>npm install react-leaflet leaflet</code></li>
+                    </ul>
+                  </li>
+              
+                  <li>
+                    <p><strong>react-tabs</strong></p>
+                    <ul>
+                      <li><strong>Beschreibung:</strong> react-tabs ist eine einfache und flexible React-Implementierung für Tab-Komponenten.</li>
+                      <li><strong>Installation:</strong> <code>npm install react-tabs</code></li>
+                    </ul>
+                  </li>
+                </ol>
+              
+                <p>Diese Bibliotheken bieten eine Vielzahl von Funktionen und Erweiterungen, die die Entwicklung von React-Anwendungen effizienter und leistungsfähiger machen.</p>
+                <p>Dies ist nur ein kleiner Auszug aus allen verfügbaren Bibliotheken, besuchen Sie die Website von npm um mehr zu erfahren: <a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
+              
+            </section>
+          
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>

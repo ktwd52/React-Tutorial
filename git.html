@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Wie erstelle ich ein Projekt mit React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cheat Sheet: Wie erstelle ich ein Projekt mit React</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/react-allgemein.html">Was ist React?</a></li>
+                    <li><a href="/git.html">Erste Schritte: GIT einrichten</a></li>
+                    <li><a href="/installation-vite.html">Erste Schritte: Projekt Struktur mit Vite</a></li>
+                    <li><a href="/tailwind-css.html"> Erste schritte: Tailwind CSS, Daisy UI und Prettier</a></li>
+                    <li><a href="/use -state.html">React-Hooks: useState</a></li>
+                    <li><a href="/use-effect.html">React-Hooks: useEffect</a></li>
+                    <li><a href="/useContext.html">React-Hooks: useContext</a></li>
+                    <li><a href="/useReducer.html">React-Hooks: useReducer</a></li>
+                    <li><a href="/reactrooter.html">React-Rooter</a></li>
+                    <li><a href="/npm.html">Libaries - npm</a></li>
+                    <li><a href="/backend.html">Anbindung des Backends mit React</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <section id="thema1">
+                <h2>Erste Schritte: Git repository einrichten und steuern:</h2>
+                <p>
+                    <ul>
+                        <li>Git add .    &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Fügt alle nicht zusammengezogenen und modifizierten Änderungen von einer spezifischen Datei zum Staging-Bereich hinzu.</li>
+                        <li>Git status  &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Zeigt den aktuellen Status der Dateien in Ihrem Repository an. Nicht gestagte Dateien werden rot angezeigt, während Dateien, die mit einem früheren Git-Add-Befehl gestagt wurden, in grün angezeigt werden.</li>
+                        <li>git commit -m “deine Nachricht“ &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Speichert die Änderungen, die zum Staging-Area hinzugefügt wurden, mit einer Nachricht.</li>
+                        <li>Git log &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Zeigt Ihnen die History der Commits im Detail in umgekehrter chronologischer Reihenfolge.</li>
+                        <li>Git branch -a &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Zeigt Ihnen eine Liste aller lokalen und entfernten Branches.</li>
+                        <li>Git checkout -b Branchname &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Erstellt eine neue Branch mit dem Namen Branchname und wechselt automatisch zu dieser neuen Branch.</li>
+                        <li>Git branch -d Branchname &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Löscht die Branch mit dem Namen Branchname.</li>
+                        <li>Git remote add origin &lt;github repo http/ssh Link&gt; &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Erstellt eine Verbindung zum entfernten Repo.</li>
+                        <li>git pull origin main  &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Herunterlädt das main Branch aus dem entfernten Repo.</li>
+                        <li>Git clone origin &lt;github repo http/ssh Link&gt; &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Erstellt eine Verbindung zum entfernten Repo und herunterlädt das main Branch aus dem entfernten Repo automatisch.</li>
+                        <li>git push -u origin newbranch &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Lädt das Branch newbranch zum entfernten Repo hoch, das vorher nicht im Repo war.</li>
+                        <li>Git remote -v &nbsp;&nbsp;&nbsp -> &nbsp;&nbsp;&nbsp Prüft die Verbindung zwischen dem lokalen Repo und dem entfernten Repo.</li>
+                    </ul>
+                </p>
+            </section>
+           
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright by Ahmed, Sebastian, Timor und Yohannes</p>
+    </div>
+</body>
+</html>
